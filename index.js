@@ -1,6 +1,7 @@
-let word = "A"
+let word = "Сука!"
 const wordArray = Array.from(word)
 const cloneWordArray = [...wordArray]
+let cout = -1
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -76,9 +77,13 @@ checkButton.addEventListener('click', () => {
                 if (newSpanText === cloneWordArray[i]) {
                     spanElements[i].style.background = 'rgb(0, 97, 0)'
                     spanElements[i].draggable = false
-                    win()
+                    cout++
                 } else {
                     spanElements[i].style.background = 'rgb(114, 0, 0)'
+                }
+                
+                if (cout == parseInt(wordArray.length)) {
+                    win()
                 }
         }
     } else {
